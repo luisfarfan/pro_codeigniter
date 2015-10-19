@@ -4,8 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
+    public function __construct() {
+        parent::__construct();
+
+        $this->load->library('ssh_library');
+    }
+
     public function index() {
-//		$this->load->view('welcome_message');
+        debug($this->ssh_library->connect_ssh('192.168.1.39'));
     }
 
     public function prueba() {
